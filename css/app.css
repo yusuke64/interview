@@ -6,6 +6,7 @@ body{
     display: flex;
     flex-direction: column;
     height: 100vh;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 /* ------------------------------------
@@ -18,15 +19,23 @@ body{
     font-size: 2rem;
     line-height: 80px;
     margin-bottom: 100px;
-    background: #b2d3ff71;
+    background:#f8f8f8;
 }
 .site-title a{
-    color: rgb(70, 70, 70);
+    color: #000;
     text-decoration: none;
+}
+@media screen and (max-width: 500px){
+    .header{
+        height: 60px;
+        line-height: 60px;
+        margin-bottom: 80px;
+        font-size: 1.6rem;
+    }
 }
 
 /* -------------------------------------
-* toppage
+* top
 * ------------------------------------ */
 .navi{
     text-align: center;
@@ -39,19 +48,27 @@ body{
     margin-bottom: 40px;
 }
 .list{
-    background: rgba(100, 10, 10, .5);
+    background:#111;
     width: 100px;
     margin: 0 auto;
     margin-bottom: 20px;
+    border-radius: 3px;
+    transition: .2s;
 }
 .list a{
     display: block;
-    padding: 10px;
+    padding: 12px;
     color: #fff;
     text-decoration: none;
 }
-.list a:hover{
-    text-decoration: underline;
+.list:hover{
+    opacity: 0.7;
+}
+@media screen and (max-width: 500px){
+    .navi{
+        font-size: .8rem;
+        margin-bottom: 15px;
+    }
 }
 
 /* -------------------------------------
@@ -60,10 +77,11 @@ body{
 .questions{
     margin: 0 auto;
     width: 400px;
+    padding-top: 60px;
     overflow: hidden;
 }
 .wrap{
-    width: 2400px;
+    width: 2800px;
 }
 .questions-box{
     width: 400px;
@@ -72,20 +90,33 @@ body{
 }
 .questions-area{
     height: 100px auto;
-    padding: 40px 20px;
     font-size: 1.4rem;
     list-style-type: none;
-    background: #beb7e3;
     font-weight: bold;
-    border-radius: 40px 0;
+}
+.q-wrap{
+    padding: 40px 20px;
+    background: #f1f1f1;
+    border-radius: 30px 0;
 }
 .counter{
     margin-top: 40px;
     font-size: 1.2rem;
 }
+.counter{
+    font-family: 'IBM Plex Sans', sans-serif;
+    background:  #fff;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px;
+    color: #111;
+    width: 20%;
+    border: 1px solid #111;
+    border-radius: 50%;
+}
 .btn{
-    background: rgb(231, 229, 229);
-    border-radius: 5px;
+    background: #111;
+    border-radius: 2px;
     font-size: 1rem;
     padding: 10px;
     display: block;
@@ -94,16 +125,25 @@ body{
     margin: 0 auto;
     cursor: pointer;
     margin-top: 30px;
-    color: #555;
+    color: #fff;
+    transition: .2s;
 }
 .btn a{
-    color: #555;
+    color: #fff;
     text-decoration: none;
+    user-select: none;
 }
 .ok,
-.next, 
+.next,
 .end{
     display: none;
+}
+.next,
+.end {
+    background: #111;
+    color: #fff;
+    animation-name: btn-ani;
+    animation-duration: .3s;
 }
 .start{
     font-size: 1.2rem;
@@ -115,12 +155,53 @@ body{
 .btn:hover{
     opacity: .7;
 }
+@keyframes btn-ani{
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: none;
+    }
+}
+@media screen and (max-width: 500px){
+    .start{
+        width: 40%;
+        margin-left: auto;
+    }
+    .q-wrap{
+        width: 300px;
+        margin: 0 auto;
+    }
+    .btn:hover{
+        opacity: 1;
+    }
+}
 
+/* -------------------------------------
+* questions
+* ------------------------------------ */
 .footer{
     margin-top: auto;
     height: 60px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-align: center;
+    color: #000;
     line-height: 60px;
-    background: #b2d3ff71;
+    background: #f8f8f8;
+}
+.wait{
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+.result-num{
+    display: block;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    user-select: none;
+}@media screen and (max-width: 500px){
+    .footer{
+        font-size: .9rem;
+    }
 }
