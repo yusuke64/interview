@@ -1,7 +1,7 @@
 $(function(){
 
     // ---------------------------------------質問描写---------------------------------------
-    let wrap = $('.wrap');
+    const wrap = $('.wrap');
 
     // 質問作成
     for(let i = 0; i < questions.length; i++){
@@ -37,14 +37,15 @@ $(function(){
     // ---------------------------------------画面動作処理---------------------------------------
     let timer,
         sec = 0,
-        start = $('.start'),
-        ok = $('.ok'),
-        next = $('.next'),
-        end = $('.end'),
-        counter = $('.counter'),
-        result = $('.result'),
-        restart = $('.restart'),
         results = [];
+
+    const start = $('.start'),
+          ok = $('.ok'),
+          next = $('.next'),
+          end = $('.end'),
+          counter = $('.counter'),
+          result = $('.result'),
+          restart = $('.restart');
 
     function slide() {
         wrap.animate({"margin-left" : parseInt($('.wrap').css("margin-left"))-400+"px"},600);
@@ -64,16 +65,15 @@ $(function(){
     start.click(function(){
         slide();
         counter.html(sec);
-            ok.show();
-            timer = setInterval(function(){
-                sec++;
-                counter.html(sec);
-            },1000);
-        });
+        ok.show();
+        timer = setInterval(function(){
+            sec++;
+            counter.html(sec);
+        },1000);
+    });
 
     ok.on('click', function(){
         results.push(sec);
-        console.log(results);
         clearInterval(timer);
         ok.hide();
         next.show();
